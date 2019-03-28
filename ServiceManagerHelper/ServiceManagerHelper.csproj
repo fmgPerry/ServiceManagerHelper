@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1C2E3A8E-E905-4AFE-8F00-6B3672A62B7C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ServiceManagerHelper</RootNamespace>
+    <AssemblyName>ServiceManagerHelper</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\DevInt_PolicyCenterService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\Localhost_PC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ExcelJobs.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vehicle.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Connected Services\DevInt_PolicyCenterService\AccountContactModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\AccountContactRoleModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\AccountModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\AddressModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ContactModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\FMGConnectService.wsdl" />
+    <None Include="Connected Services\DevInt_PolicyCenterService\FMG_AccountInfo_v201301.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\MutualmembershipFmgModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\NoteModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\OfficialIDModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\OperatingUnitFmgModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\PhoneFmgModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ReviewedByFmgModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\RiskAdjustmentFmgModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.AccountActiveClaimInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.AccountInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.AccountNotes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.AccountPolicySummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.AccountSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.addAccountContactCRMResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.addAccountContactRoleCRMResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.addAccountCRMResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.addVehicleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.ClaimVehicleCriteria.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.ContactAccountDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.ContactInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.ContactSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.currentVersionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.DataDictionary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getAccountActiveClaimResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getAccountNotesCRMResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getAccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getClaimVehicleCriteriaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getContactAccountAssociationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getContactInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getDataDictionaryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getNoteInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getOpunitResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getPaymentInstallmentPreviewResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getPolicyCoverableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getPolicyCoverablesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getPolicyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getPolicySummaryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.getSalesRegionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.MultipleCoverableChangeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.NoteDetailCRM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.offlineOpenWorkorderExistsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.OpUnitInfoCRM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.PaymentInstallmentPreviewSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.PolicyCoverable.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.PolicyInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.processPaymentMethodChangeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.QuoteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.RemoveCoverableChangeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.requestCoverCancelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.RequestIssueResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.requestIssueResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.requestVehicleQuote_ListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.requestWithdrawResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.SalesRegionInfoCRM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.updateAccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.updateContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.VehicleChangeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\ServiceManagerHelper.DevInt_PolicyCenterService.verifyBankAccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\soapheaders.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DevInt_PolicyCenterService\UserModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Localhost_PC\AccountContactModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Localhost_PC\AccountContactRoleModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Localhost_PC\AccountModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Localhost_PC\AddressModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ContactModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Localhost_PC\FMGConnectService.wsdl" />
+    <None Include="Connected Services\Localhost_PC\FMG_AccountInfo_v201301.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Localhost_PC\NoteModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Localhost_PC\Phone_fmgModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.AccountActiveClaimInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.AccountInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.AccountNotes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.AccountPolicySummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.AccountSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.addAccountContactCRMResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.addAccountContactRoleCRMResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.addAccountCRMResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.addMultipleVehicleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.AddVehicleDraftResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.addVehicleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.addVehicleToDraftResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.ClaimContentCriteria.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.ClaimVehicleCriteria.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.ContactAccountDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.ContactInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.ContactSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.currentVersionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.DataDictionary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getAccountActiveClaimResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getAccountNotesCRMResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getAccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getClaimContentCriteriaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getClaimVehicleCriteriaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getContactAccountAssociationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getContactInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getDataDictionaryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getNoteInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getOpunitResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getPaymentInstallmentPreviewResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getPolicyCoverableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getPolicyCoverablesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getPolicyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getPolicySummaryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.getSalesRegionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.MultipleCoverableChangeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.NoteDetailCRM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.offlineOpenWorkorderExistsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.OpUnitInfoCRM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.PaymentInstallmentPreviewSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.PolicyCoverable.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.PolicyInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.processPaymentMethodChangeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.QuoteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.RemoveCoverableChangeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.requestCoverCancelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.RequestIssueResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.requestIssueResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.requestPolicyChangeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.requestVehicleQuote_ListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.requestWithdrawResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.SalesRegionInfoCRM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.updateAccountPermissionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.updateAccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.updateContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.VehicleChangeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\ServiceManagerHelper.Localhost_PC.verifyBankAccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Localhost_PC\soapheaders.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Xml.XmlElement.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\DevInt_PolicyCenterService\" />
+    <WCFMetadataStorage Include="Connected Services\Localhost_PC\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DevInt_PolicyCenterService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DevInt_PolicyCenterService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DevInt_PolicyCenterService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Localhost_PC\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Localhost_PC\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Localhost_PC\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

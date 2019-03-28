@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.operatingunitfmgmodel" xmlns:gw="http://guidewire.com/xsd" elementFormDefault="qualified" targetNamespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.operatingunitfmgmodel" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="OperatingUnit_fmg" nillable="true" type="OperatingUnit_fmg" />
+  <xsd:complexType name="OperatingUnit_fmg">
+    <xsd:sequence>
+      <xsd:element gw:type="java.lang.String" minOccurs="0" name="Code" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

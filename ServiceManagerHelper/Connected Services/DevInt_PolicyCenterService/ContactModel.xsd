@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:ns2="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.phonefmgmodel" xmlns:gw="http://guidewire.com/xsd" xmlns:ns0="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.addressmodel" xmlns="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.contactmodel" xmlns:ns1="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.officialidmodel" elementFormDefault="qualified" targetNamespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.contactmodel" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="AddressModel.gx" namespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.addressmodel" />
+  <xsd:import schemaLocation="OfficialIDModel.gx" namespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.officialidmodel" />
+  <xsd:import schemaLocation="PhoneFmgModel.gx" namespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.phonefmgmodel" />
+  <xsd:element name="Contact" nillable="true" type="Contact" />
+  <xsd:complexType name="Contact">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="entity-Company" nillable="true">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element gw:type="java.lang.String" minOccurs="0" name="LegalName_fmg" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="entity-Person" nillable="true">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element gw:type="java.lang.String" minOccurs="0" name="CellPhone" nillable="true" type="xsd:string" />
+            <xsd:element gw:type="java.util.Date" minOccurs="0" name="DateOfBirth" nillable="true" type="xsd:dateTime" />
+            <xsd:element gw:type="java.util.Date" minOccurs="0" name="EmployeeEndDate_fmg" nillable="true" type="xsd:dateTime" />
+            <xsd:element gw:type="java.util.Date" minOccurs="0" name="EmployeeStartDate_fmg" nillable="true" type="xsd:dateTime" />
+            <xsd:element minOccurs="0" name="EmployeeStatus_fmg" nillable="true" type="xsd:string" />
+            <xsd:element gw:type="java.lang.String" minOccurs="0" name="FirstName" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="Gender" nillable="true" type="xsd:string" />
+            <xsd:element gw:type="java.lang.Boolean" minOccurs="0" name="IsDeceased_fmg" nillable="true" type="xsd:boolean" />
+            <xsd:element gw:type="java.lang.Boolean" minOccurs="0" name="KeepBenefits_fmg" nillable="true" type="xsd:boolean" />
+            <xsd:element gw:type="java.lang.String" minOccurs="0" name="LastName" nillable="true" type="xsd:string" />
+            <xsd:element gw:type="java.lang.String" minOccurs="0" name="LicenseNumber" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="LicenseState" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="MaritalStatus" nillable="true" type="xsd:string" />
+            <xsd:element gw:type="java.lang.String" minOccurs="0" name="MiddleName" nillable="true" type="xsd:string" />
+            <xsd:element gw:type="java.lang.String" minOccurs="0" name="Occupation" nillable="true" type="xsd:string" />
+            <xsd:element gw:type="java.lang.String" minOccurs="0" name="PreferredName_fmg" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="Prefix" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="Suffix" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element gw:type="java.lang.String" minOccurs="0" name="AddressBookUID" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="AllAddresses" nillable="true">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="ns0:Address" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="CorrespondenceType_fmg" nillable="true" type="xsd:string" />
+      <xsd:element gw:type="java.lang.String" minOccurs="0" name="EmailAddress1" nillable="true" type="xsd:string" />
+      <xsd:element gw:type="java.lang.String" minOccurs="0" name="EmailAddress1Notes_fmg" nillable="true" type="xsd:string" />
+      <xsd:element gw:type="java.lang.String" minOccurs="0" name="EmailAddress2" nillable="true" type="xsd:string" />
+      <xsd:element gw:type="java.lang.String" minOccurs="0" name="EmailAddress2Notes_fmg" nillable="true" type="xsd:string" />
+      <xsd:element gw:type="java.lang.String" minOccurs="0" name="HomePhone" nillable="true" type="xsd:string" />
+      <xsd:element gw:type="java.lang.Boolean" minOccurs="0" name="IsMigrated_fmg" nillable="true" type="xsd:boolean" />
+      <xsd:element gw:type="java.lang.String" minOccurs="0" name="MailName_fmg" nillable="true" type="xsd:string" />
+      <xsd:element gw:type="java.lang.String" minOccurs="0" name="MobilePhone_fmg" nillable="true" type="xsd:string" />
+      <xsd:element gw:type="java.lang.String" minOccurs="0" name="Name" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="NoEmailReasonTL_fmg" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="OfficialIDs" nillable="true">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="ns1:OfficialID" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="Phones_fmg" nillable="true">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="ns2:Phone_fmg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="PrimaryAddress" nillable="true" type="ns0:Address" />
+      <xsd:element minOccurs="0" name="PrimaryPhone" nillable="true" type="xsd:string" />
+      <xsd:element gw:type="java.lang.String" minOccurs="0" name="PrimaryPhoneValue" nillable="true" type="xsd:string" />
+      <xsd:element gw:type="java.lang.String" minOccurs="0" name="PublicID" nillable="true" type="xsd:string" />
+      <xsd:element gw:type="java.lang.String" minOccurs="0" name="Salutation_fmg" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Subtype" nillable="true" type="xsd:string" />
+      <xsd:element gw:type="java.lang.String" minOccurs="0" name="WorkPhone" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

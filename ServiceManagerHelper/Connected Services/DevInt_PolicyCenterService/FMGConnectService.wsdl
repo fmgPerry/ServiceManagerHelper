@@ -1,0 +1,2375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:pogo="http://example.com/nz/co/fmg/vo/fmgconnect" xmlns:gwwsdl="http://guidewire.com/pl/wsdl" xmlns:gwsoap="http://guidewire.com/ws/soapheaders" xmlns="http://guidewire.com/pc/ws/nz/co/fmg/webservice/fmgconnect/FMGConnectService" xmlns:pogo2="http://example.com/nz/co/fmg/vo/fmgconnect/comon" xmlns:pogo3="http://example.com/nz/co/fmg/vo/crm" name="FMGConnectService" targetNamespace="http://guidewire.com/pc/ws/nz/co/fmg/webservice/fmgconnect/FMGConnectService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:imported3="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.contactmodel" xmlns:imported="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.accountmodel" xmlns:imported4="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.accountcontactrolemodel" xmlns:imported2="http://www.fmg.co.nz/schema/account/FMG_AccountInfo_v201301" elementFormDefault="qualified" targetNamespace="http://guidewire.com/pc/ws/nz/co/fmg/webservice/fmgconnect/FMGConnectService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import schemaLocation="../../../../../gw/xsd/guidewire/soapheaders.xsd" namespace="http://guidewire.com/ws/soapheaders" />
+      <xs:import schemaLocation="../../../../../gw/webservice/pc/pc700/gxmodel/AccountContactRoleModel.gx" namespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.accountcontactrolemodel" />
+      <xs:import schemaLocation="../../../../../gw/webservice/pc/pc700/gxmodel/ContactModel.gx" namespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.contactmodel" />
+      <xs:import schemaLocation="../../../../../gw/webservice/pc/pc700/account/FMG_AccountInfo_v201301.xsd" namespace="http://www.fmg.co.nz/schema/account/FMG_AccountInfo_v201301" />
+      <xs:import schemaLocation="../../../../../gw/webservice/pc/pc700/gxmodel/AccountModel.gx" namespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.accountmodel" />
+      <xs:import namespace="http://example.com/nz/co/fmg/vo/crm" />
+      <xs:import namespace="http://example.com/nz/co/fmg/vo/fmgconnect/comon" />
+      <xs:import namespace="http://example.com/nz/co/fmg/vo/fmgconnect" />
+      <xs:element name="updateAccount">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="a" type="pogo:AccountSummary" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAccountResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo:AccountSummary" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getContactAccountAssociation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="contactId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getContactAccountAssociationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo:ContactAccountDetail" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BadIdentifierException">
+        <xs:complexType />
+      </xs:element>
+      <xs:element name="RequiredFieldException">
+        <xs:complexType />
+      </xs:element>
+      <xs:element name="updateContact">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="c" type="pogo:ContactSummary" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateContactResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo:ContactSummary" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getContact">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="contactId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getContactResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo:ContactSummary" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPolicySummary">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPolicySummaryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo:AccountPolicySummary" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPolicyCoverables">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="policyNumber" type="xs:string" />
+            <xs:element minOccurs="0" name="policyPeriod" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPolicyCoverablesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="return">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:PolicyCoverable" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPolicyCoverable">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="coverableReferenceID" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPolicyCoverableResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo:PolicyCoverable" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="offlineOpenWorkorderExists">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="policyNumber" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="offlineOpenWorkorderExistsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addVehicle">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="contactId" type="xs:string" />
+            <xs:element minOccurs="0" name="policyNumber" type="xs:string" />
+            <xs:element minOccurs="0" name="vehicleCriteria" type="pogo:AddVehicleCriteria" />
+            <xs:element minOccurs="0" name="asOfDate" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addVehicleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo:VehicleChangeResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="requestVehicleQuote_List">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="contactID" type="xs:string" />
+            <xs:element minOccurs="0" name="policyNumber" type="xs:string" />
+            <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="vehicleSummaries">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:PolicyCoverableVehicle" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="jobID" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="requestVehicleQuote_ListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo:MultipleCoverableChangeResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="requestIssue">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="jobID" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="requestIssueResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo:RequestIssueResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDataDictionary">
+        <xs:complexType />
+      </xs:element>
+      <xs:element name="getDataDictionaryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo:DataDictionary" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPaymentInstallmentPreview">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ppPublicID" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPaymentInstallmentPreviewResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo:PaymentInstallmentPreviewSummary" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="verifyBankAccount">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="bankAccountNumber" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="verifyBankAccountResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="processPaymentMethodChange">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="contactId" type="xs:string" />
+            <xs:element minOccurs="0" name="payMethodChange" type="pogo:PaymentMethodChange" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="processPaymentMethodChangeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo2:QuoteResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="requestCoverCancel">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="contactId" type="xs:string" />
+            <xs:element minOccurs="0" name="policyNumber" type="xs:string" />
+            <xs:element minOccurs="0" name="coverableID" type="xs:string" />
+            <xs:element minOccurs="0" name="asAtDate" type="xs:string" />
+            <xs:element minOccurs="0" name="reasonCode" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="requestCoverCancelResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo:RemoveCoverableChangeResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="requestWithdraw">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="jobId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="requestWithdrawResponse">
+        <xs:complexType />
+      </xs:element>
+      <xs:element name="getAccount">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAccountResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo3:AccountInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getContactInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="contactId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getContactInfoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo3:ContactInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getNoteInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="publicID" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getNoteInfoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo3:NoteDetailCRM" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAccountNotesCRM">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAccountNotesCRMResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo3:AccountNotes" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPolicy">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="policyNumber" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPolicyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo3:PolicyInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAccountActiveClaim">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAccountActiveClaimResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo3:AccountActiveClaimInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getOpunit">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="OpunitCode" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getOpunitResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo3:OpUnitInfoCRM" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getSalesRegion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="publicID" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getSalesRegionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo3:SalesRegionInfoCRM" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addAccountCRM">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="externalAccount" type="imported:Account" />
+            <xs:element minOccurs="0" name="crmAccountID" type="xs:string" />
+            <xs:element minOccurs="0" name="crmAccountAddressID" type="xs:string" />
+            <xs:element minOccurs="0" name="crmContactID" type="xs:string" />
+            <xs:element minOccurs="0" name="crmAdds">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element ref="imported2:CRMAddresses" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="crmphNums">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element ref="imported2:CRMPhoneNos" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addAccountCRMResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any processContents="skip" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addAccountContactCRM">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="externalContact" type="imported3:Contact" />
+            <xs:element minOccurs="0" name="AccountNumber" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addAccountContactCRMResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addAccountContactRoleCRM">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="accountPublicID" type="xs:string" />
+            <xs:element minOccurs="0" name="contactPublicID" type="xs:string" />
+            <xs:element minOccurs="0" name="accountContactRoleInfo" type="imported4:AccountContactRole" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addAccountContactRoleCRMResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="currentVersion">
+        <xs:complexType />
+      </xs:element>
+      <xs:element name="currentVersionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getClaimVehicleCriteria">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="policyNumber" type="xs:string" />
+            <xs:element minOccurs="0" name="fixedID" type="xs:string" />
+            <xs:element minOccurs="0" name="lossDate" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getClaimVehicleCriteriaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="pogo:ClaimVehicleCriteria" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://example.com/nz/co/fmg/vo/fmgconnect" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://example.com/nz/co/fmg/vo/crm" />
+      <xs:import namespace="http://example.com/nz/co/fmg/vo/fmgconnect/comon" />
+      <xs:complexType name="AccountSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountHolderID" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountNumber" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="AccountRoles">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:AccountRoleSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="AccountType" type="pogo:TypeCodeSummary" />
+          <xs:element minOccurs="0" name="FMGMember" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+          <xs:element minOccurs="0" name="StatementDeliveryMethod" type="pogo:TypeCodeSummary" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AccountRoleSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Authority" type="pogo:TypeCodeSummary" />
+          <xs:element minOccurs="0" name="ContactID" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="Roles">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:TypeCodeSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TypeCodeSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:string" />
+          <xs:element minOccurs="0" name="DisplayName" type="xs:string" />
+          <xs:element minOccurs="0" name="Priority" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ContactAccountDetail">
+        <xs:sequence>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="AccountContacts">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:ContactSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="Accounts">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:AccountSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="ContactID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ContactSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressBookUID" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="Addresses">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:ContactAddressSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="ContactID" type="xs:string" />
+          <xs:element minOccurs="0" name="ContactType" type="pogo:TypeCodeSummary" />
+          <xs:element minOccurs="0" name="DateOfBirth" type="xs:string" />
+          <xs:element minOccurs="0" name="DriverLicenceNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="DriverLicenceType" type="xs:string" />
+          <xs:element minOccurs="0" name="DriverUWRequired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Email" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeStatus" type="pogo:TypeCodeSummary" />
+          <xs:element minOccurs="0" name="FMGConnectLogin" type="xs:string" />
+          <xs:element minOccurs="0" name="IsDeceased" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MaritalStatus" type="pogo:TypeCodeSummary" />
+          <xs:element minOccurs="0" name="Name" type="pogo:ContactNameSummary" />
+          <xs:element minOccurs="0" name="NewsAndPromoEmails" type="xs:boolean" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="PhoneNumbers">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:ContactPhoneNumberSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="PreferredName" type="xs:string" />
+          <xs:element minOccurs="0" name="Prefix" type="pogo:TypeCodeSummary" />
+          <xs:element minOccurs="0" name="PublicID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ContactAddressSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressLine1" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine2" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine3" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressType" type="xs:string" />
+          <xs:element minOccurs="0" name="CareOfName" type="xs:string" />
+          <xs:element minOccurs="0" name="City" type="xs:string" />
+          <xs:element minOccurs="0" name="Country" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+          <xs:element minOccurs="0" name="PostCode" type="xs:string" />
+          <xs:element minOccurs="0" name="Primary" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PropertyName" type="xs:string" />
+          <xs:element minOccurs="0" name="PublicID" type="xs:string" />
+          <xs:element minOccurs="0" name="RuralAddress" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ContactNameSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FirstName" type="xs:string" />
+          <xs:element minOccurs="0" name="LastName" type="xs:string" />
+          <xs:element minOccurs="0" name="MiddleName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ContactPhoneNumberSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PhoneID" type="xs:string" />
+          <xs:element minOccurs="0" name="PhoneNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="PhoneType" type="pogo:TypeCodeSummary" />
+          <xs:element minOccurs="0" name="Primary" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AccountPolicySummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountBillingNextInvoiceDue" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountBillingOutstanding" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountBillingOverdue" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AccountNumber" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="PolicySummaries">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:PolicySummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="Refund" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PolicySummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllCoverablesMapped" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Billing" type="pogo:BillingSummary" />
+          <xs:element minOccurs="0" name="CancellationDate" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientReviewContactID" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientReviewDate" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="CoverableSummary">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:PolicyCoverableSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+          <xs:element minOccurs="0" name="Invoicing" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="Locations">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:PolicyLocationSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="PaymentMade" type="xs:string" />
+          <xs:element minOccurs="0" name="PeriodEnd" type="xs:string" />
+          <xs:element minOccurs="0" name="PeriodStart" type="xs:string" />
+          <xs:element minOccurs="0" name="PolicyNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="PolicyPremiumProrated" type="pogo:PremiumSummary" />
+          <xs:element minOccurs="0" name="PolicyType" type="pogo:TypeCodeSummary" />
+          <xs:element minOccurs="0" name="ProducerCode" type="xs:string" />
+          <xs:element minOccurs="0" name="Renewal" type="pogo:RenewalSummary" />
+          <xs:element minOccurs="0" name="SliceDate" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BillingSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+          <xs:element minOccurs="0" name="Invoice" type="pogo:BillingInvoiceSummary" />
+          <xs:element minOccurs="0" name="PaymentAccount" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentPlan" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentType" type="pogo:PaymentDirection" />
+          <xs:element minOccurs="0" name="PaymentsOutstanding" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ShareholderNo" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BillingInvoiceSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AmountDue" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+          <xs:element minOccurs="0" name="OverDue" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PaymentDueDate" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentPlan" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="PaymentDirection">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="DIRECT_DEBIT" />
+          <xs:enumeration value="AGENCY" />
+          <xs:enumeration value="MANUAL" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="PolicyCoverableSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CoverClaimableFrom" type="xs:string" />
+          <xs:element minOccurs="0" name="CoverEnd" type="xs:string" />
+          <xs:element minOccurs="0" name="CoverablePremiumProrated" type="xs:string" />
+          <xs:element minOccurs="0" name="CoverableType" type="xs:string" />
+          <xs:element minOccurs="0" name="DisplayName" type="xs:string" />
+          <xs:element minOccurs="0" name="Excess" type="xs:string" />
+          <xs:element minOccurs="0" name="FixedId" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+          <xs:element minOccurs="0" name="InsuredEvent" type="pogo:TypeCodeSummary" />
+          <xs:element minOccurs="0" name="JobNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="Line" type="xs:string" />
+          <xs:element minOccurs="0" name="PolicyPeriodID" type="xs:string" />
+          <xs:element minOccurs="0" name="SumInsured" type="xs:string" />
+          <xs:element minOccurs="0" name="Term" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PolicyLocationSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressLine1" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine2" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine3" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressType_fmg" type="xs:string" />
+          <xs:element minOccurs="0" name="CareOfName" type="xs:string" />
+          <xs:element minOccurs="0" name="City" type="xs:string" />
+          <xs:element minOccurs="0" name="Country" type="xs:string" />
+          <xs:element minOccurs="0" name="DPID" type="xs:int" />
+          <xs:element minOccurs="0" name="Gd2kXcoord" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Gd2kYcoord" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+          <xs:element minOccurs="0" name="Meshblock" type="xs:int" />
+          <xs:element minOccurs="0" name="NzmgXcoord" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NzmgYcoord" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NztmXcoord" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NztmYcoord" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ParcelId" type="xs:int" />
+          <xs:element minOccurs="0" name="PostCode" type="xs:string" />
+          <xs:element minOccurs="0" name="Primary" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PropertyName" type="xs:string" />
+          <xs:element minOccurs="0" name="RuralAddress" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SourceDesc" type="xs:string" />
+          <xs:element minOccurs="0" name="SourceID" type="xs:int" />
+          <xs:element minOccurs="0" name="UniqueID" type="xs:int" />
+          <xs:element minOccurs="0" name="ValidAddress" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PremiumSummary">
+        <xs:sequence>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="GSTandGovtLevies">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:TypeCodeSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="TotalAmount" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RenewalSummary">
+        <xs:sequence>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="CoverableSummary">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:PolicyCoverableSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="DaysUntilRenewal" type="xs:int" />
+          <xs:element minOccurs="0" name="Difference" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+          <xs:element minOccurs="0" name="NewBillingPlan" type="xs:string" />
+          <xs:element minOccurs="0" name="NewPayment" type="xs:string" />
+          <xs:element minOccurs="0" name="PeriodEnd" type="xs:string" />
+          <xs:element minOccurs="0" name="PeriodStart" type="xs:string" />
+          <xs:element minOccurs="0" name="PolicyPremiumProrated" type="pogo:PremiumSummary" />
+          <xs:element minOccurs="0" name="SliceDate" type="xs:string" />
+          <xs:element minOccurs="0" name="WorkOrder" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PolicyCoverable">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CoverEnd" type="xs:string" />
+          <xs:element minOccurs="0" name="CoverableID" type="xs:string" />
+          <xs:element minOccurs="0" name="CoverablePremiumProrated" type="pogo:PremiumSummary" />
+          <xs:element minOccurs="0" name="CoverableType" type="xs:string" />
+          <xs:element minOccurs="0" name="DisplayName" type="xs:string" />
+          <xs:element minOccurs="0" name="FixedID" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+          <xs:element minOccurs="0" name="JobNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="Line" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="Locations">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:PolicyLocationSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="PolicyPeriodID" type="xs:string" />
+          <xs:element minOccurs="0" name="PolicyPremiumProrated" type="pogo:PremiumSummary" />
+          <xs:element name="Term" type="xs:int" />
+          <xs:element minOccurs="0" name="Vehicle" type="pogo:PolicyCoverableVehicle" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PolicyCoverableVehicle">
+        <xs:sequence>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="AccessoriesAndModifications">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:AccessoryModification" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="BaseCover" type="pogo:BaseCover" />
+          <xs:element minOccurs="0" name="EffectiveDate" type="xs:string" />
+          <xs:element minOccurs="0" name="FixedID" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="ImposedTerms">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:PolicyCoverableCondExcl" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="Location" type="pogo:PolicyLocationSummary" />
+          <xs:element minOccurs="0" name="LocationID" type="xs:string" />
+          <xs:element minOccurs="0" name="MainDriver" type="xs:string" />
+          <xs:element minOccurs="0" name="Make" type="xs:string" />
+          <xs:element minOccurs="0" name="Model" type="xs:string" />
+          <xs:element minOccurs="0" name="ModelType" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="NamedDrivers">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="OptionalCovers">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:OptionalCover" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="Plate" type="xs:string" />
+          <xs:element minOccurs="0" name="PolicyWording" type="pogo:TypeCodeSummary" />
+          <xs:element minOccurs="0" name="VehicleType" type="pogo:TypeCodeSummary" />
+          <xs:element minOccurs="0" name="Year" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AccessoryModification">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Details" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" type="pogo:TypeCodeSummary" />
+          <xs:element minOccurs="0" name="Value" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BaseCover">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BasisOfSettlement" type="xs:string" />
+          <xs:element minOccurs="0" name="Excess" type="xs:string" />
+          <xs:element minOccurs="0" name="InsuredEvent" type="pogo:TypeCodeSummary" />
+          <xs:element minOccurs="0" name="NaturalDisasterIncluded" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SumInsured" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PolicyCoverableCondExcl">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:string" />
+          <xs:element minOccurs="0" name="DisplayName" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+          <xs:element minOccurs="0" name="Text" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OptionalCover">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:string" />
+          <xs:element minOccurs="0" name="CoverTaken" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DisplayName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AddVehicleCriteria">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CCRating" type="xs:string" />
+          <xs:element minOccurs="0" name="Driver" type="pogo:ContactSummary" />
+          <xs:element minOccurs="0" name="EngineType" type="xs:string" />
+          <xs:element minOccurs="0" name="GLW" type="xs:string" />
+          <xs:element minOccurs="0" name="InsuredEvent" type="xs:string" />
+          <xs:element minOccurs="0" name="Location" type="pogo:PolicyLocationSummary" />
+          <xs:element minOccurs="0" name="Make" type="xs:string" />
+          <xs:element minOccurs="0" name="Model" type="xs:string" />
+          <xs:element minOccurs="0" name="NZTAUsage" type="xs:string" />
+          <xs:element minOccurs="0" name="Registration" type="xs:string" />
+          <xs:element minOccurs="0" name="SerialNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="SumInsured" type="xs:string" />
+          <xs:element minOccurs="0" name="VIN" type="xs:string" />
+          <xs:element minOccurs="0" name="Variant" type="xs:string" />
+          <xs:element minOccurs="0" name="Year" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VehicleChangeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ChangeInCost" type="xs:string" />
+          <xs:element minOccurs="0" name="CoverablePremiumProrated" type="pogo:PremiumSummary" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="InstallmentPreview">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:BillingInvoiceSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="JobID" type="xs:string" />
+          <xs:element minOccurs="0" name="JobNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="JobStatus" type="xs:string" />
+          <xs:element minOccurs="0" name="NextInstallment" type="pogo:BillingInvoiceSummary" />
+          <xs:element minOccurs="0" name="PaymentEstimate" type="pogo:PaymentPlanSummary" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="PeriodicInstallments">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:PeriodicInstallment" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="PolicyPremiumProrated" type="pogo:PremiumSummary" />
+          <xs:element minOccurs="0" name="Vehicle" type="pogo:PolicyCoverableVehicle" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PaymentPlanSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PaymentFrequency" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentPerFrequency" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PeriodicInstallment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:string" />
+          <xs:element minOccurs="0" name="AnnualisedPremium" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentPlan" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MultipleCoverableChangeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ChangeInCost" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="Changes_Vehicle">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:PolicyCoverable" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="InstallmentPreview">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:BillingInvoiceSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="JobID" type="xs:string" />
+          <xs:element minOccurs="0" name="JobNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="JobStatus" type="xs:string" />
+          <xs:element minOccurs="0" name="NextInstallment" type="pogo:BillingInvoiceSummary" />
+          <xs:element minOccurs="0" name="PaymentEstimate" type="pogo:PaymentPlanSummary" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="PeriodicInstallments">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:PeriodicInstallment" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="PolicyPremiumProrated" type="pogo:PremiumSummary" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RequestIssueResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EffectiveDate" type="xs:string" />
+          <xs:element minOccurs="0" name="JobNumber" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DataDictionary">
+        <xs:sequence>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="CancelReasonList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:TypeCodeSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="DamageTypeList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:TypeCodeSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="DriverLicenceTypes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:TypeCodeSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="EngineTypes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:TypeCodeSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="ExcessGuide" type="pogo:DataDictionaryVehicleExcessGuide" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="GlassRepairerTypes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:TypeCodeSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="PaymentFrequencyList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:TypeCodeSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="PaymentTypeList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:DataDictionaryPaymentType" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="PhoneTypeList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:TypeCodeSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="ProducerList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:TypeCodeSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="VehicleCoverTypeList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:DataDictionaryVehicleCoverType" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DataDictionaryVehicleExcessGuide">
+        <xs:sequence>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="Drivers">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:DataDictionaryVehicleExcessGuideItem" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="Other">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:DataDictionaryVehicleExcessGuideItem" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="StandardExcess" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DataDictionaryVehicleExcessGuideItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:string" />
+          <xs:element minOccurs="0" name="DisplayName" type="xs:string" />
+          <xs:element minOccurs="0" name="NoExcess" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Text" type="xs:string" />
+          <xs:element minOccurs="0" name="Value" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DataDictionaryPaymentType">
+        <xs:sequence>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="AvailableFrequency">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="Code" type="xs:string" />
+          <xs:element minOccurs="0" name="DisplayName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DataDictionaryVehicleCoverType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="CoverSummary">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:DataDictionaryCoverSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="DisplayName" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="ExcessList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="OptionalCovers">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:DataDictionaryVehicleOptionalCover" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="Priority" type="xs:string" />
+          <xs:element minOccurs="0" name="Retired" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DataDictionaryCoverSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CoverDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="Included" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Priority" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DataDictionaryVehicleOptionalCover">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" type="xs:string" />
+          <xs:element minOccurs="0" name="DisplayName" type="xs:string" />
+          <xs:element minOccurs="0" name="Priority" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PaymentInstallmentPreviewSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PPPublicID" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="PaymentItems">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:PaymentInstallmentPreviewItem" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="PolicyPeriodID" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PaymentInstallmentPreviewItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:type="java.util.Date" minOccurs="0" name="DueDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DueDateString" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PaymentMethodChange">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BankAccountName" type="xs:string" />
+          <xs:element minOccurs="0" name="BankAccountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="BillingMethod" type="xs:string" />
+          <xs:element minOccurs="0" name="NewPaymentType" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentDay" type="xs:int" />
+          <xs:element minOccurs="0" name="PaymentMethod" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentPlan" type="xs:string" />
+          <xs:element minOccurs="0" name="PolicyPeriodID" type="xs:string" />
+          <xs:element minOccurs="0" name="ProducerCode" type="xs:string" />
+          <xs:element minOccurs="0" name="ShareholderNo" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RemoveCoverableChangeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ChangeInCost" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="InstallmentPreview">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:BillingInvoiceSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="JobID" type="xs:string" />
+          <xs:element minOccurs="0" name="JobStatus" type="xs:string" />
+          <xs:element minOccurs="0" name="NextInstallment" type="pogo:BillingInvoiceSummary" />
+          <xs:element minOccurs="0" name="PolicyPeriodID" type="xs:string" />
+          <xs:element minOccurs="0" name="Refund" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalAmount" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ClaimVehicleCriteria">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FixedID" type="xs:string" />
+          <xs:element name="GlassCoverAvailable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LossDate" type="xs:string" />
+          <xs:element minOccurs="0" name="PolicyNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="PolicyPeriodID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://example.com/nz/co/fmg/vo/fmgconnect/comon" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://example.com/nz/co/fmg/vo/crm" />
+      <xs:import namespace="http://example.com/nz/co/fmg/vo/fmgconnect" />
+      <xs:complexType name="QuoteResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ChangeInCost" type="xs:string" />
+          <xs:element minOccurs="0" name="JobNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="JobStatus" type="xs:string" />
+          <xs:element minOccurs="0" name="JobType" type="xs:string" />
+          <xs:element minOccurs="0" name="PolicyPeriodID" type="xs:string" />
+          <xs:element minOccurs="0" name="PolicyPremiumProrated" type="pogo:PremiumSummary" />
+          <xs:element minOccurs="0" name="Refund" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalAmount" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://example.com/nz/co/fmg/vo/crm" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://example.com/nz/co/fmg/vo/fmgconnect/comon" />
+      <xs:import namespace="http://example.com/nz/co/fmg/vo/fmgconnect" />
+      <xs:complexType name="AccountInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountHolderAddressCareOfName" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountHolderAddressLine1" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountHolderAddressLine2" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountHolderAddressLine3" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountHolderAddressPropertyName" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountHolderAddressType" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountHolderCity" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountHolderID" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountHolderName" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountHolderPostalCode" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountHolderRuralAddress_fmg" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AccountNumber" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="AccountRoles">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo3:AccountRoleSummaryCRM" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="AccountType" type="pogo3:TypeCodeSummaryCRM" />
+          <xs:element minOccurs="0" name="CCIReviewDate" type="xs:string" />
+          <xs:element minOccurs="0" name="FMGMember" type="xs:boolean" />
+          <xs:element minOccurs="0" name="GroupCategory" type="xs:string" />
+          <xs:element minOccurs="0" name="GroupNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+          <xs:element minOccurs="0" name="LossRatio" type="xs:string" />
+          <xs:element minOccurs="0" name="NextPolicyRenewalDate" type="xs:string" />
+          <xs:element minOccurs="0" name="OnFarmReviewDate" type="xs:string" />
+          <xs:element minOccurs="0" name="OpUnitCode" type="xs:string" />
+          <xs:element minOccurs="0" name="PrimaryAccountPublicID" type="xs:string" />
+          <xs:element minOccurs="0" name="RenewalReviewDate" type="xs:string" />
+          <xs:element minOccurs="0" name="StatementDeliveryMethod" type="pogo3:TypeCodeSummaryCRM" />
+          <xs:element minOccurs="0" name="TotalCost" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalPremium" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AccountRoleSummaryCRM">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Authority" type="pogo3:TypeCodeSummaryCRM" />
+          <xs:element minOccurs="0" name="ContactID" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="Roles">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo3:TypeCodeSummaryCRM" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TypeCodeSummaryCRM">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:string" />
+          <xs:element minOccurs="0" name="DisplayName" type="xs:string" />
+          <xs:element minOccurs="0" name="Retired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RolePublicID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ContactInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressBookUID" type="xs:string" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="Addresses">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo:ContactAddressSummary" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="ContactID" type="xs:string" />
+          <xs:element minOccurs="0" name="ContactType" type="pogo3:TypeCodeSummaryCRM" />
+          <xs:element minOccurs="0" name="DateOfBirth" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" type="xs:string" />
+          <xs:element minOccurs="0" name="Email2" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeStatus" type="pogo3:TypeCodeSummaryCRM" />
+          <xs:element minOccurs="0" name="FMGConnectLogin" type="xs:string" />
+          <xs:element minOccurs="0" name="IsDeceased" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MaritalStatus" type="pogo3:TypeCodeSummaryCRM" />
+          <xs:element minOccurs="0" name="Name" type="pogo:ContactNameSummary" />
+          <xs:element minOccurs="0" name="NewsAndPromoEmails" type="xs:boolean" />
+          <xs:element minOccurs="0" name="NoEmailReason" type="pogo3:TypeCodeSummaryCRM" />
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="PhoneNumbers">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="pogo3:ContactPhoneNumberSummaryCRM" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="PreferredName" type="xs:string" />
+          <xs:element minOccurs="0" name="Prefix" type="pogo3:TypeCodeSummaryCRM" />
+          <xs:element minOccurs="0" name="PublicID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ContactPhoneNumberSummaryCRM">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PhoneID" type="xs:string" />
+          <xs:element minOccurs="0" name="PhoneNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="PhoneType" type="pogo3:TypeCodeSummaryCRM" />
+          <xs:element minOccurs="0" name="Primary" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="NoteDetailCRM">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountPublicID" type="xs:string" />
+          <xs:element minOccurs="0" name="Author" type="xs:string" />
+          <xs:element minOccurs="0" name="AuthorDate" type="xs:string" />
+          <xs:element minOccurs="0" name="Content" type="xs:string" />
+          <xs:element minOccurs="0" name="Priority" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PublicID" type="xs:string" />
+          <xs:element minOccurs="0" name="Subject" type="xs:string" />
+          <xs:element minOccurs="0" name="Topic" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AccountNotes">
+        <xs:sequence>
+          <xs:element xmlns:gw="http://guidewire.com/xsd" gw:viewas="list" minOccurs="0" name="AcctNotes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PolicyInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountPublicId" type="xs:string" />
+          <xs:element minOccurs="0" name="DiscAdjPercent" type="xs:string" />
+          <xs:element minOccurs="0" name="IssueDate" type="xs:string" />
+          <xs:element minOccurs="0" name="PeriodEnd" type="xs:string" />
+          <xs:element minOccurs="0" name="PolicyNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="PolicyType" type="xs:string" />
+          <xs:element minOccurs="0" name="PublicID" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalCost" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalPremium" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AccountActiveClaimInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="ActiveClaim" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ID" type="xs:string" />
+          <xs:element name="NoOfActiveClaims" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OpUnitInfoCRM">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OpUnitCode" type="xs:string" />
+          <xs:element minOccurs="0" name="OpUnitName" type="xs:string" />
+          <xs:element minOccurs="0" name="PublicID" type="xs:string" />
+          <xs:element minOccurs="0" name="SalesRegionId" type="xs:string" />
+          <xs:element minOccurs="0" name="SalesRole" type="xs:string" />
+          <xs:element minOccurs="0" name="ServicedBy" type="xs:string" />
+          <xs:element minOccurs="0" name="TerritoryMgr" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SalesRegionInfoCRM">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PublicID" type="xs:string" />
+          <xs:element minOccurs="0" name="SalesRegion" type="xs:string" />
+          <xs:element minOccurs="0" name="SalesRegionMgr" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="updateAccount">
+    <wsdl:part name="parameters" element="updateAccount" />
+  </wsdl:message>
+  <wsdl:message name="updateAccountResponse">
+    <wsdl:part name="parameters" element="updateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="getContactAccountAssociation">
+    <wsdl:part name="parameters" element="getContactAccountAssociation" />
+  </wsdl:message>
+  <wsdl:message name="getContactAccountAssociationResponse">
+    <wsdl:part name="parameters" element="getContactAccountAssociationResponse" />
+  </wsdl:message>
+  <wsdl:message name="BadIdentifierException">
+    <wsdl:part name="BadIdentifierException" element="BadIdentifierException" />
+  </wsdl:message>
+  <wsdl:message name="RequiredFieldException">
+    <wsdl:part name="RequiredFieldException" element="RequiredFieldException" />
+  </wsdl:message>
+  <wsdl:message name="updateContact">
+    <wsdl:part name="parameters" element="updateContact" />
+  </wsdl:message>
+  <wsdl:message name="updateContactResponse">
+    <wsdl:part name="parameters" element="updateContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="getContact">
+    <wsdl:part name="parameters" element="getContact" />
+  </wsdl:message>
+  <wsdl:message name="getContactResponse">
+    <wsdl:part name="parameters" element="getContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPolicySummary">
+    <wsdl:part name="parameters" element="getPolicySummary" />
+  </wsdl:message>
+  <wsdl:message name="getPolicySummaryResponse">
+    <wsdl:part name="parameters" element="getPolicySummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPolicyCoverables">
+    <wsdl:part name="parameters" element="getPolicyCoverables" />
+  </wsdl:message>
+  <wsdl:message name="getPolicyCoverablesResponse">
+    <wsdl:part name="parameters" element="getPolicyCoverablesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPolicyCoverable">
+    <wsdl:part name="parameters" element="getPolicyCoverable" />
+  </wsdl:message>
+  <wsdl:message name="getPolicyCoverableResponse">
+    <wsdl:part name="parameters" element="getPolicyCoverableResponse" />
+  </wsdl:message>
+  <wsdl:message name="offlineOpenWorkorderExists">
+    <wsdl:part name="parameters" element="offlineOpenWorkorderExists" />
+  </wsdl:message>
+  <wsdl:message name="offlineOpenWorkorderExistsResponse">
+    <wsdl:part name="parameters" element="offlineOpenWorkorderExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="addVehicle">
+    <wsdl:part name="parameters" element="addVehicle" />
+  </wsdl:message>
+  <wsdl:message name="addVehicleResponse">
+    <wsdl:part name="parameters" element="addVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="requestVehicleQuote_List">
+    <wsdl:part name="parameters" element="requestVehicleQuote_List" />
+  </wsdl:message>
+  <wsdl:message name="requestVehicleQuote_ListResponse">
+    <wsdl:part name="parameters" element="requestVehicleQuote_ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="requestIssue">
+    <wsdl:part name="parameters" element="requestIssue" />
+  </wsdl:message>
+  <wsdl:message name="requestIssueResponse">
+    <wsdl:part name="parameters" element="requestIssueResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDataDictionary">
+    <wsdl:part name="parameters" element="getDataDictionary" />
+  </wsdl:message>
+  <wsdl:message name="getDataDictionaryResponse">
+    <wsdl:part name="parameters" element="getDataDictionaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPaymentInstallmentPreview">
+    <wsdl:part name="parameters" element="getPaymentInstallmentPreview" />
+  </wsdl:message>
+  <wsdl:message name="getPaymentInstallmentPreviewResponse">
+    <wsdl:part name="parameters" element="getPaymentInstallmentPreviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="verifyBankAccount">
+    <wsdl:part name="parameters" element="verifyBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="verifyBankAccountResponse">
+    <wsdl:part name="parameters" element="verifyBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="processPaymentMethodChange">
+    <wsdl:part name="parameters" element="processPaymentMethodChange" />
+  </wsdl:message>
+  <wsdl:message name="processPaymentMethodChangeResponse">
+    <wsdl:part name="parameters" element="processPaymentMethodChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="requestCoverCancel">
+    <wsdl:part name="parameters" element="requestCoverCancel" />
+  </wsdl:message>
+  <wsdl:message name="requestCoverCancelResponse">
+    <wsdl:part name="parameters" element="requestCoverCancelResponse" />
+  </wsdl:message>
+  <wsdl:message name="requestWithdraw">
+    <wsdl:part name="parameters" element="requestWithdraw" />
+  </wsdl:message>
+  <wsdl:message name="requestWithdrawResponse">
+    <wsdl:part name="parameters" element="requestWithdrawResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAccount">
+    <wsdl:part name="parameters" element="getAccount" />
+  </wsdl:message>
+  <wsdl:message name="getAccountResponse">
+    <wsdl:part name="parameters" element="getAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="getContactInfo">
+    <wsdl:part name="parameters" element="getContactInfo" />
+  </wsdl:message>
+  <wsdl:message name="getContactInfoResponse">
+    <wsdl:part name="parameters" element="getContactInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNoteInfo">
+    <wsdl:part name="parameters" element="getNoteInfo" />
+  </wsdl:message>
+  <wsdl:message name="getNoteInfoResponse">
+    <wsdl:part name="parameters" element="getNoteInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAccountNotesCRM">
+    <wsdl:part name="parameters" element="getAccountNotesCRM" />
+  </wsdl:message>
+  <wsdl:message name="getAccountNotesCRMResponse">
+    <wsdl:part name="parameters" element="getAccountNotesCRMResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPolicy">
+    <wsdl:part name="parameters" element="getPolicy" />
+  </wsdl:message>
+  <wsdl:message name="getPolicyResponse">
+    <wsdl:part name="parameters" element="getPolicyResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAccountActiveClaim">
+    <wsdl:part name="parameters" element="getAccountActiveClaim" />
+  </wsdl:message>
+  <wsdl:message name="getAccountActiveClaimResponse">
+    <wsdl:part name="parameters" element="getAccountActiveClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOpunit">
+    <wsdl:part name="parameters" element="getOpunit" />
+  </wsdl:message>
+  <wsdl:message name="getOpunitResponse">
+    <wsdl:part name="parameters" element="getOpunitResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSalesRegion">
+    <wsdl:part name="parameters" element="getSalesRegion" />
+  </wsdl:message>
+  <wsdl:message name="getSalesRegionResponse">
+    <wsdl:part name="parameters" element="getSalesRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="addAccountCRM">
+    <wsdl:part name="parameters" element="addAccountCRM" />
+  </wsdl:message>
+  <wsdl:message name="addAccountCRMResponse">
+    <wsdl:part name="parameters" element="addAccountCRMResponse" />
+  </wsdl:message>
+  <wsdl:message name="addAccountContactCRM">
+    <wsdl:part name="parameters" element="addAccountContactCRM" />
+  </wsdl:message>
+  <wsdl:message name="addAccountContactCRMResponse">
+    <wsdl:part name="parameters" element="addAccountContactCRMResponse" />
+  </wsdl:message>
+  <wsdl:message name="addAccountContactRoleCRM">
+    <wsdl:part name="parameters" element="addAccountContactRoleCRM" />
+  </wsdl:message>
+  <wsdl:message name="addAccountContactRoleCRMResponse">
+    <wsdl:part name="parameters" element="addAccountContactRoleCRMResponse" />
+  </wsdl:message>
+  <wsdl:message name="currentVersion">
+    <wsdl:part name="parameters" element="currentVersion" />
+  </wsdl:message>
+  <wsdl:message name="currentVersionResponse">
+    <wsdl:part name="parameters" element="currentVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="getClaimVehicleCriteria">
+    <wsdl:part name="parameters" element="getClaimVehicleCriteria" />
+  </wsdl:message>
+  <wsdl:message name="getClaimVehicleCriteriaResponse">
+    <wsdl:part name="parameters" element="getClaimVehicleCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="gw-authentication">
+    <wsdl:part name="gw-authentication" element="gwsoap:authentication" />
+  </wsdl:message>
+  <wsdl:message name="gw-locale">
+    <wsdl:part name="gw-locale" element="gwsoap:locale" />
+  </wsdl:message>
+  <wsdl:portType name="FMGConnectServicePortType">
+    <wsdl:operation name="updateAccount">
+      <wsdl:input name="updateAccount" message="updateAccount" />
+      <wsdl:output name="updateAccountResponse" message="updateAccountResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getContactAccountAssociation">
+      <wsdl:input name="getContactAccountAssociation" message="getContactAccountAssociation" />
+      <wsdl:output name="getContactAccountAssociationResponse" message="getContactAccountAssociationResponse" />
+      <wsdl:fault name="BadIdentifierException" message="BadIdentifierException" />
+      <wsdl:fault name="RequiredFieldException" message="RequiredFieldException" />
+    </wsdl:operation>
+    <wsdl:operation name="updateContact">
+      <wsdl:input name="updateContact" message="updateContact" />
+      <wsdl:output name="updateContactResponse" message="updateContactResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getContact">
+      <wsdl:input name="getContact" message="getContact" />
+      <wsdl:output name="getContactResponse" message="getContactResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPolicySummary">
+      <wsdl:input name="getPolicySummary" message="getPolicySummary" />
+      <wsdl:output name="getPolicySummaryResponse" message="getPolicySummaryResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPolicyCoverables">
+      <wsdl:input name="getPolicyCoverables" message="getPolicyCoverables" />
+      <wsdl:output name="getPolicyCoverablesResponse" message="getPolicyCoverablesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPolicyCoverable">
+      <wsdl:input name="getPolicyCoverable" message="getPolicyCoverable" />
+      <wsdl:output name="getPolicyCoverableResponse" message="getPolicyCoverableResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="offlineOpenWorkorderExists">
+      <wsdl:input name="offlineOpenWorkorderExists" message="offlineOpenWorkorderExists" />
+      <wsdl:output name="offlineOpenWorkorderExistsResponse" message="offlineOpenWorkorderExistsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addVehicle">
+      <wsdl:input name="addVehicle" message="addVehicle" />
+      <wsdl:output name="addVehicleResponse" message="addVehicleResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="requestVehicleQuote_List">
+      <wsdl:input name="requestVehicleQuote_List" message="requestVehicleQuote_List" />
+      <wsdl:output name="requestVehicleQuote_ListResponse" message="requestVehicleQuote_ListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="requestIssue">
+      <wsdl:input name="requestIssue" message="requestIssue" />
+      <wsdl:output name="requestIssueResponse" message="requestIssueResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getDataDictionary">
+      <wsdl:input name="getDataDictionary" message="getDataDictionary" />
+      <wsdl:output name="getDataDictionaryResponse" message="getDataDictionaryResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentInstallmentPreview">
+      <wsdl:input name="getPaymentInstallmentPreview" message="getPaymentInstallmentPreview" />
+      <wsdl:output name="getPaymentInstallmentPreviewResponse" message="getPaymentInstallmentPreviewResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="verifyBankAccount">
+      <wsdl:input name="verifyBankAccount" message="verifyBankAccount" />
+      <wsdl:output name="verifyBankAccountResponse" message="verifyBankAccountResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="processPaymentMethodChange">
+      <wsdl:input name="processPaymentMethodChange" message="processPaymentMethodChange" />
+      <wsdl:output name="processPaymentMethodChangeResponse" message="processPaymentMethodChangeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="requestCoverCancel">
+      <wsdl:input name="requestCoverCancel" message="requestCoverCancel" />
+      <wsdl:output name="requestCoverCancelResponse" message="requestCoverCancelResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="requestWithdraw">
+      <wsdl:input name="requestWithdraw" message="requestWithdraw" />
+      <wsdl:output name="requestWithdrawResponse" message="requestWithdrawResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getAccount">
+      <wsdl:input name="getAccount" message="getAccount" />
+      <wsdl:output name="getAccountResponse" message="getAccountResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getContactInfo">
+      <wsdl:input name="getContactInfo" message="getContactInfo" />
+      <wsdl:output name="getContactInfoResponse" message="getContactInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getNoteInfo">
+      <wsdl:input name="getNoteInfo" message="getNoteInfo" />
+      <wsdl:output name="getNoteInfoResponse" message="getNoteInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getAccountNotesCRM">
+      <wsdl:input name="getAccountNotesCRM" message="getAccountNotesCRM" />
+      <wsdl:output name="getAccountNotesCRMResponse" message="getAccountNotesCRMResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPolicy">
+      <wsdl:input name="getPolicy" message="getPolicy" />
+      <wsdl:output name="getPolicyResponse" message="getPolicyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getAccountActiveClaim">
+      <wsdl:input name="getAccountActiveClaim" message="getAccountActiveClaim" />
+      <wsdl:output name="getAccountActiveClaimResponse" message="getAccountActiveClaimResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getOpunit">
+      <wsdl:input name="getOpunit" message="getOpunit" />
+      <wsdl:output name="getOpunitResponse" message="getOpunitResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSalesRegion">
+      <wsdl:input name="getSalesRegion" message="getSalesRegion" />
+      <wsdl:output name="getSalesRegionResponse" message="getSalesRegionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addAccountCRM">
+      <wsdl:input name="addAccountCRM" message="addAccountCRM" />
+      <wsdl:output name="addAccountCRMResponse" message="addAccountCRMResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addAccountContactCRM">
+      <wsdl:input name="addAccountContactCRM" message="addAccountContactCRM" />
+      <wsdl:output name="addAccountContactCRMResponse" message="addAccountContactCRMResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addAccountContactRoleCRM">
+      <wsdl:input name="addAccountContactRoleCRM" message="addAccountContactRoleCRM" />
+      <wsdl:output name="addAccountContactRoleCRMResponse" message="addAccountContactRoleCRMResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="currentVersion">
+      <wsdl:input name="currentVersion" message="currentVersion" />
+      <wsdl:output name="currentVersionResponse" message="currentVersionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getClaimVehicleCriteria">
+      <wsdl:input name="getClaimVehicleCriteria" message="getClaimVehicleCriteria" />
+      <wsdl:output name="getClaimVehicleCriteriaResponse" message="getClaimVehicleCriteriaResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FMGConnectServiceSoap12Binding" type="FMGConnectServicePortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="updateAccount">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="updateAccount">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateAccountResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getContactAccountAssociation">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getContactAccountAssociation">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getContactAccountAssociationResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="BadIdentifierException">
+        <soap12:fault use="literal" name="BadIdentifierException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="RequiredFieldException">
+        <soap12:fault use="literal" name="RequiredFieldException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateContact">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="updateContact">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateContactResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getContact">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getContact">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getContactResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicySummary">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getPolicySummary">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPolicySummaryResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicyCoverables">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getPolicyCoverables">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPolicyCoverablesResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicyCoverable">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getPolicyCoverable">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPolicyCoverableResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="offlineOpenWorkorderExists">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="offlineOpenWorkorderExists">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="offlineOpenWorkorderExistsResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addVehicle">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="addVehicle">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addVehicleResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="requestVehicleQuote_List">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="requestVehicleQuote_List">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestVehicleQuote_ListResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="requestIssue">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="requestIssue">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestIssueResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataDictionary">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getDataDictionary">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getDataDictionaryResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentInstallmentPreview">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getPaymentInstallmentPreview">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPaymentInstallmentPreviewResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyBankAccount">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="verifyBankAccount">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="verifyBankAccountResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processPaymentMethodChange">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="processPaymentMethodChange">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="processPaymentMethodChangeResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="requestCoverCancel">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="requestCoverCancel">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestCoverCancelResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="requestWithdraw">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="requestWithdraw">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestWithdrawResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccount">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getAccount">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAccountResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getContactInfo">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getContactInfo">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getContactInfoResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNoteInfo">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getNoteInfo">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getNoteInfoResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountNotesCRM">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getAccountNotesCRM">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAccountNotesCRMResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicy">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getPolicy">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPolicyResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountActiveClaim">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getAccountActiveClaim">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAccountActiveClaimResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOpunit">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getOpunit">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getOpunitResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesRegion">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getSalesRegion">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getSalesRegionResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAccountCRM">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="addAccountCRM">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addAccountCRMResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAccountContactCRM">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="addAccountContactCRM">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addAccountContactCRMResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAccountContactRoleCRM">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="addAccountContactRoleCRM">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addAccountContactRoleCRMResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="currentVersion">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="currentVersion">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="currentVersionResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClaimVehicleCriteria">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getClaimVehicleCriteria">
+        <soap12:body use="literal" />
+        <soap12:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap12:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getClaimVehicleCriteriaResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FMGConnectServiceSoap11Binding" type="FMGConnectServicePortType">
+    <soap11:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="updateAccount">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="updateAccount">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateAccountResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getContactAccountAssociation">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getContactAccountAssociation">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getContactAccountAssociationResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="BadIdentifierException">
+        <soap11:fault use="literal" name="BadIdentifierException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="RequiredFieldException">
+        <soap11:fault use="literal" name="RequiredFieldException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateContact">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="updateContact">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateContactResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getContact">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getContact">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getContactResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicySummary">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getPolicySummary">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPolicySummaryResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicyCoverables">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getPolicyCoverables">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPolicyCoverablesResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicyCoverable">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getPolicyCoverable">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPolicyCoverableResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="offlineOpenWorkorderExists">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="offlineOpenWorkorderExists">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="offlineOpenWorkorderExistsResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addVehicle">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="addVehicle">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addVehicleResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="requestVehicleQuote_List">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="requestVehicleQuote_List">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestVehicleQuote_ListResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="requestIssue">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="requestIssue">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestIssueResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataDictionary">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getDataDictionary">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getDataDictionaryResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentInstallmentPreview">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getPaymentInstallmentPreview">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPaymentInstallmentPreviewResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyBankAccount">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="verifyBankAccount">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="verifyBankAccountResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processPaymentMethodChange">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="processPaymentMethodChange">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="processPaymentMethodChangeResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="requestCoverCancel">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="requestCoverCancel">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestCoverCancelResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="requestWithdraw">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="requestWithdraw">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="requestWithdrawResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccount">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getAccount">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAccountResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getContactInfo">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getContactInfo">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getContactInfoResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNoteInfo">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getNoteInfo">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getNoteInfoResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountNotesCRM">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getAccountNotesCRM">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAccountNotesCRMResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicy">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getPolicy">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPolicyResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountActiveClaim">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getAccountActiveClaim">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAccountActiveClaimResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOpunit">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getOpunit">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getOpunitResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesRegion">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getSalesRegion">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getSalesRegionResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAccountCRM">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="addAccountCRM">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addAccountCRMResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAccountContactCRM">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="addAccountContactCRM">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addAccountContactCRMResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAccountContactRoleCRM">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="addAccountContactRoleCRM">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addAccountContactRoleCRMResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="currentVersion">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="currentVersion">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="currentVersionResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClaimVehicleCriteria">
+      <soap11:operation soapAction="" style="document" />
+      <wsdl:input name="getClaimVehicleCriteria">
+        <soap11:body use="literal" />
+        <soap11:header message="gw-authentication" part="gw-authentication" use="literal" />
+        <soap11:header message="gw-locale" part="gw-locale" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getClaimVehicleCriteriaResponse">
+        <soap11:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FMGConnectService">
+    <wsdl:port name="FMGConnectServiceSoap12Port" binding="FMGConnectServiceSoap12Binding">
+      <soap12:address location="http://dev0164/pc/ws/nz/co/fmg/webservice/fmgconnect/FMGConnectService" />
+      <gwwsdl:address location="${pc}/ws/nz/co/fmg/webservice/fmgconnect/FMGConnectService" />
+    </wsdl:port>
+    <wsdl:port name="FMGConnectServiceSoap11Port" binding="FMGConnectServiceSoap11Binding">
+      <soap11:address location="http://dev0164/pc/ws/nz/co/fmg/webservice/fmgconnect/FMGConnectService/soap11" />
+      <gwwsdl:address location="${pc}/ws/nz/co/fmg/webservice/fmgconnect/FMGConnectService/soap11" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

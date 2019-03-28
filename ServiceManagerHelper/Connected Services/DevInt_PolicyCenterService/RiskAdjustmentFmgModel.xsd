@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.riskadjustmentfmgmodel" xmlns:gw="http://guidewire.com/xsd" xmlns:ns0="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.accountmodel" elementFormDefault="qualified" targetNamespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.riskadjustmentfmgmodel" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="AccountModel.gx" namespace="http://guidewire.com/pc/gx/gw.webservice.pc.pc700.gxmodel.accountmodel" />
+  <xsd:element name="RiskAdjustment_fmg" nillable="true" type="RiskAdjustment_fmg" />
+  <xsd:complexType name="RiskAdjustment_fmg">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Account" nillable="true" type="ns0:Account" />
+      <xsd:element gw:type="java.lang.Boolean" minOccurs="0" name="Active" nillable="true" type="xsd:boolean" />
+      <xsd:element gw:type="java.math.BigDecimal" minOccurs="0" name="ClaimsPaid" nillable="true" type="xsd:decimal" />
+      <xsd:element gw:type="java.util.Date" minOccurs="0" name="EffectiveDate" nillable="true" type="xsd:dateTime" />
+      <xsd:element gw:type="java.util.Date" minOccurs="0" name="ExpireDate" nillable="true" type="xsd:dateTime" />
+      <xsd:element gw:type="java.math.BigDecimal" minOccurs="0" name="FinalRiskAdjPerc" nillable="true" type="xsd:decimal" />
+      <xsd:element gw:type="java.lang.Integer" minOccurs="0" name="FinalRiskAdjStep" nillable="true" type="xsd:int" />
+      <xsd:element gw:type="java.math.BigDecimal" minOccurs="0" name="GWP" nillable="true" type="xsd:decimal" />
+      <xsd:element gw:type="java.math.BigDecimal" minOccurs="0" name="InitialRiskAdjPerc" nillable="true" type="xsd:decimal" />
+      <xsd:element gw:type="java.lang.Integer" minOccurs="0" name="InitialRiskAdjStep" nillable="true" type="xsd:int" />
+      <xsd:element gw:type="java.math.BigDecimal" minOccurs="0" name="LossRatio" nillable="true" type="xsd:decimal" />
+      <xsd:element gw:type="java.lang.Boolean" minOccurs="0" name="ManualOverride" nillable="true" type="xsd:boolean" />
+      <xsd:element gw:type="java.util.Date" minOccurs="0" name="PeriodEndDate" nillable="true" type="xsd:dateTime" />
+      <xsd:element gw:type="java.util.Date" minOccurs="0" name="PeriodStartDate" nillable="true" type="xsd:dateTime" />
+      <xsd:element gw:type="java.lang.String" minOccurs="0" name="PublicID" nillable="true" type="xsd:string" />
+      <xsd:element gw:type="java.lang.Integer" minOccurs="0" name="ServiceLevel" nillable="true" type="xsd:int" />
+      <xsd:element gw:type="java.lang.Integer" minOccurs="0" name="Tenure" nillable="true" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
