@@ -19,7 +19,8 @@ namespace ServiceManagerHelper
             stopwatch.Start();
 
             var pcWebservice = new FMGConnectServicePortTypeClient("FMGConnectServiceSoap12Port1");
-            pcWebservice.Endpoint.Binding.ReceiveTimeout = TimeSpan.FromMinutes(2);
+            
+            pcWebservice.Endpoint.Binding.SendTimeout = TimeSpan.FromMinutes(2);// timing out in 1 min
 
             //var result = pcWebservice.getContactAccountAssociation(
             //    authentication: new authentication { username = "su", password = "gw" },
